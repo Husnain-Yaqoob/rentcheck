@@ -1,0 +1,11 @@
+{
+  "series": "CPM24C01",
+  "label": "Consumer Price Index — All Items",
+  "base": "December 2023 = 100",
+  "publisher": "Central Statistics Office (Ireland)",
+  "source": "https://www.cso.ie/en/statistics/prices/consumerpriceindex/",
+  "api": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CPM24C01/JSON-stat/2.0/en",
+  "fetchedAt": null,
+  "note": "This file ships EMPTY on purpose. Index numbers are not invented or hardcoded — run `npm run fetch:cpi` to populate it from the CSO. Until then the app computes the 2% limb only and says so plainly, or accepts index values typed in by hand from the RTB Rent Calculator.",
+  "values": {}
+}
