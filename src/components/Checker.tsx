@@ -229,7 +229,7 @@ export function Checker() {
           >
             <Field
               label="CPI when rent was last set"
-              hint="From the RTB Rent Calculator, or CSO series CPM24C01."
+              hint="From the RTB Rent Calculator, or CSO series CPM24."
             >
               <MoneyInput value={manualPrev} onChange={setManualPrev} />
             </Field>

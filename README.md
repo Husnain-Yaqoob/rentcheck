@@ -53,16 +53,17 @@ npm run dev
 
 ## The CPI data
 
-`data/cpi-index.json` **ships empty on purpose.** Index numbers are not invented or hardcoded
-anywhere in this repo — a plausible-looking wrong index produces a plausible-looking wrong legal
-figure, which is worse than no figure at all.
+`data/cpi-index.json` is **fetched, never hand-written.** Index numbers are not invented or
+hardcoded anywhere in this repo — a plausible-looking wrong index produces a plausible-looking
+wrong legal figure, which is worse than no figure at all.
 
-`npm run fetch:cpi` pulls CSO series **CPM24C01** (Consumer Price Index, All Items, base
-December 2023 = 100) from the PxStat API and writes it to that file. Run it monthly; the CSO
-publishes with roughly a ten-day lag.
+`npm run fetch:cpi` pulls CSO series **CPM24** (Consumer Price Index, All Items, base
+December 2023 = 100) from the PxStat API and writes it to that file, recording when in `fetchedAt`.
+Run it monthly; the CSO publishes with roughly a ten-day lag.
 
-Until it's populated, the app applies the 2% limb only, labels the answer provisional, and offers
-a field for entering the two index values by hand.
+If the table has no value for a month the calculation needs (for example a rent-setting date after
+the latest published month, or a table that has not been fetched), the app applies the 2% limb
+only, labels the answer provisional, and offers a field for entering the two index values by hand.
 
 Note the index changed: the regime used **HICP** until 28 February 2026, and **CPI** from
 1 March 2026. They diverge materially — 3.4% against 3.7% in August 2026 — so using the wrong one

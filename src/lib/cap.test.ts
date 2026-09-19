@@ -1,7 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { calculateCap } from "./cap";
 import { elapsedMonths, parseIso } from "./dates";
 import type { TenancyInput } from "./types";
+
+// The "missing CPI data" tests need an empty table; pin it rather than depend on
+// whatever `npm run fetch:cpi` last wrote.
+vi.mock("../../data/cpi-index.json", () => ({
+  default: { series: "test", label: "", base: "", source: "", fetchedAt: null, values: {} },
+}));
 
 /**
  * The three worked examples below are taken from the official government

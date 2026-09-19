@@ -3,8 +3,8 @@ import { parseIso, precedingMonthKey } from "./dates";
 import type { CpiReading, IsoDate } from "./types";
 
 /**
- * The CPI table is data, not code. It ships empty and is populated by
- * `npm run fetch:cpi` from the CSO. Nothing here invents an index number:
+ * The CPI table is data, not code. It is populated by `npm run fetch:cpi` from
+ * the CSO and never edited by hand. Nothing here invents an index number:
  * if the table has no value for a month, we say so and fall back.
  */
 

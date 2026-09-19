@@ -2,7 +2,7 @@
 /**
  * Populates data/cpi-index.json from the CSO's PxStat API.
  *
- * Series CPM24C01 — Consumer Price Index, All Items, base December 2023 = 100.
+ * Series CPM24 — Consumer Price Index, All Items, base December 2023 = 100.
  * This is the index the Residential Tenancies (Miscellaneous Provisions) Act 2026
  * points at: section 8 substitutes "CPI number" for "HICP value" throughout
  * section 19 of the 2004 Act, and defines the CPI number as the All Items
@@ -21,7 +21,7 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const TARGET = path.join(ROOT, "data", "cpi-index.json");
 
 const API =
-  "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CPM24C01/JSON-stat/2.0/en";
+  "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CPM24/JSON-stat/2.0/en";
 
 /** Turn a CSO time code (e.g. "202608" or "2026M08") into "2026-08". */
 function normaliseMonth(code) {
@@ -82,7 +82,7 @@ function extractAllItems(cube) {
 }
 
 async function main() {
-  console.log("Fetching CPI series CPM24C01 from the CSO…");
+  console.log("Fetching CPI series CPM24 from the CSO…");
 
   const res = await fetch(API, { headers: { accept: "application/json" } });
   if (!res.ok) throw new Error(`CSO API returned ${res.status} ${res.statusText}`);
